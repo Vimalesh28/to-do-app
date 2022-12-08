@@ -26,13 +26,17 @@ public class SampleJava {
 			System.out.println(date);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.print("invalid date");
 		}
 
 
-
+        try {
 		level levelEnum =  level.valueOf(array[2]);
 		System.out.print(levelEnum);
+        } catch (Exception e){
+        	System.out.print("invalid enum");
+        }
 
 
 	}}
