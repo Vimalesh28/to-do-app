@@ -25,16 +25,16 @@ public class SampleJava {
 			Date date = new SimpleDateFormat("DD.MM.YY").parse(array[1]);
 			System.out.println(date);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			
 			//e.printStackTrace();
 			System.out.print("invalid date");
 		}
+	
 
-
-        try {
+       try {			
 		level levelEnum =  level.valueOf(array[2]);
 		System.out.print(levelEnum);
-        } catch (Exception e){
+       } catch (Exception e) {   
         	System.out.print("invalid enum");
         }
 
