@@ -18,7 +18,7 @@ public class Readfile {
 			while (sc.hasNextLine())
 				System.out.println(sc.nextLine());
 		} catch (FileNotFoundException e) {
-			System.out.print("user does not give input");
+			System.out.print("File not found Exception");
 		}
 	}
 }
