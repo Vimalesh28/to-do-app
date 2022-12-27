@@ -14,9 +14,7 @@ public class Json {
 		Scanner sc = new Scanner(System.in);
 		String name = sc.nextLine();
 		String[] input = name.split("#");
-		enum Level {
-			HIGH, LOW, MEDIUM
-		}
+		
 		JSONObject json = new JSONObject();
 		json.put("name", input[0]);
 		try {
@@ -28,7 +26,7 @@ public class Json {
 			e.printStackTrace();
 		}
 		try {
-			Level level1 = Level.valueOf(input[2]);
+			Enum.Level level1 = Enum.Level.valueOf(input[2]);
 			
 			json.put("severity", level1.toString());
 		} catch (Exception e) {
