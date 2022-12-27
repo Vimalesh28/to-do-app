@@ -22,14 +22,14 @@ public class Json {
 			SimpleDateFormat format = new SimpleDateFormat("DD.MM.YY");
 			String output = format.format(date);
 			json.put("duedate", output);
-		} catch (Exception e) {
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		try {
 			Enum.Level level1 = Enum.Level.valueOf(input[2]);
 			
 			json.put("severity", level1.toString());
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 
