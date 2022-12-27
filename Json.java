@@ -27,6 +27,7 @@ public class Json {
 			json.put("duedate", output);
 		} catch (ParseException e) {
 			e.printStackTrace();
+			
 		}
 		try {
 			todo.severity = Severity.valueOf(array[2]);
