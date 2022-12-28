@@ -21,8 +21,8 @@ public class Json {
 		JSONObject json = new JSONObject();
 		todo.name = array[0];
 		json.put("name", todo.name);
+		Dateformat= new SimpleDateFormat("DD.MM.YY");
 		try {
-			Dateformat= new SimpleDateFormat("DD.MM.YY");
 			todo.duedate =Dateformat.parse(array[1]);
 			String output = Dateformat.format(todo.duedate);
 			json.put("duedate", output);
@@ -32,7 +32,6 @@ public class Json {
 		}
 		try {
 			todo.severity = Severity.valueOf(array[2]);
-
 			json.put("severity", todo.severity.toString());
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
