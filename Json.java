@@ -17,13 +17,14 @@ public class Json {
 		String todoinput = sc.nextLine();
 		String[] array = todoinput.split("#");
 		Todo todo = new Todo();
+		SimpleDateFormat Dateformat;
 		JSONObject json = new JSONObject();
 		todo.name = array[0];
 		json.put("name", array[0]);
 		try {
-			todo.duedate = new SimpleDateFormat("DD.MM.YY").parse(array[1]);
-			SimpleDateFormat format = new SimpleDateFormat("DD.MM.YY");
-			String output = format.format(todo.duedate);
+			Dateformat= new SimpleDateFormat("DD.MM.YY");
+			todo.duedate =Dateformat.parse(array[1]);
+			String output = Dateformat.format(todo.duedate);
 			json.put("duedate", output);
 		} catch (ParseException e) {
 			e.printStackTrace();
