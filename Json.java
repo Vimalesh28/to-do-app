@@ -20,7 +20,7 @@ public class Json {
 		SimpleDateFormat Dateformat;
 		JSONObject json = new JSONObject();
 		todo.name = array[0];
-		json.put("name", array[0]);
+		json.put("name", todo.name);
 		try {
 			Dateformat= new SimpleDateFormat("DD.MM.YY");
 			todo.duedate =Dateformat.parse(array[1]);
