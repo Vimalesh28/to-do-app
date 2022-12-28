@@ -11,44 +11,47 @@ import org.json.simple.JSONObject;
 
 import jsonnew.Main.severity;
 
-public class mainclass{
+public class mainclass {
 	public enum Severity {
 		HIGH, LOW, MEDIUM
 	}
 
-	private static class Todo{
+	private static class Todo {
 		String name;
 		Date duedate;
 		Severity severity;
+
 		@Override
-		public String toString()
-		{
+		public String toString() {
 			return "Todo [name=" + name + ", duedate=" + duedate + ", severity=" + severity + "]";
-		}
-		
-		
-	}
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		String input =sc.nextLine();
-		try {
-			Todo todo=convertStringToTodo(input);
-			JSONObject todoJson=convertTodoToJSON(todo);
-			writeFile(todoJson);
-		}  catch(Exception e) {
 		}
 
 	}
-	private static void writeFile(JSONObject todoJson) {
-		
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
 		try {
-			    BufferedWriter f_writer = new BufferedWriter(new FileWriter("C:\\Users\\HP\\eclipse-workspace\\jsonfile\\file.txt"));
-				f_writer.write(todoJson.toString());
-				f_writer.close();
-		}catch(Exception e) {
+			Todo todo = convertStringToTodo(input);
+			JSONObject todoJson = convertTodoToJSON(todo);
+			writeFile(todoJson);
+		} catch (Exception e) {
+		}
+
+	}
+
+	private static void writeFile(JSONObject todoJson) {
+
+		try {
+			BufferedWriter f_writer = new BufferedWriter(
+					new FileWriter("C:\\Users\\HP\\eclipse-workspace\\jsonfile\\file.txt"));
+			f_writer.write(todoJson.toString());
+			f_writer.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	private static JSONObject convertTodoToJSON(Todo todo) {
 		// TODO Auto-generated method stub
 		System.out.println(todo.toString());
@@ -58,20 +61,22 @@ public class mainclass{
 		json.put("Sevity", todo.severity.toString());
 		return json;
 	}
+
 	private static Todo convertStringToTodo(String input) {
-		Todo todo=new Todo();
+		Todo todo = new Todo();
 		String[] array = input.split("#");
 		SimpleDateFormat Dateformat;
 		todo.name = array[0];
-		Dateformat=new SimpleDateFormat("DD.MM.YY");
+		Dateformat = new SimpleDateFormat("DD.MM.YY");
 		try {
-			 todo.duedate=Dateformat.parse(array[1]);
-		} catch(Exception e){
+			todo.duedate = Dateformat.parse(array[1]);
+		} catch (Exception e) {
 			e.printStackTrace();
-		
-	}
+
+		}
 		todo.severity = Severity.valueOf(array[2]);
-	
+
 		return todo;
-	
-	}}
+
+	}
+}
