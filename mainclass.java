@@ -70,12 +70,15 @@ public class mainclass {
 		Dateformat = new SimpleDateFormat("DD.MM.YY");
 		try {
 			todo.duedate = Dateformat.parse(array[1]);
-		} catch (Exception e) {
+		} catch (parseException e) {
 			e.printStackTrace();
 
 		}
+		try {
 		todo.severity = Severity.valueOf(array[2]);
-
+		} catch(IllegalArgumentException e) {
+			e.printStackTrace();
+		}
 		return todo;
 
 	}
