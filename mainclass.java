@@ -28,7 +28,7 @@ public class mainclass {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
 		try {
