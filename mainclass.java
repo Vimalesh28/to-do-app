@@ -64,25 +64,21 @@ public class mainclass {
 	}
 private static Todo convertStringToTodo(String input)  {
 		Todo todo = new Todo();
-		
 		String[] array = input.split("#");
 		SimpleDateFormat Dateformat;
 		todo.name = array[0];
 		Dateformat = new SimpleDateFormat("DD.MM.YY");
 		try {
 			todo.duedate = Dateformat.parse(array[1]);
-		} catch (Exception e) {
-		 
-			e.printStackTrace();
+		} catch (ParseException e) {
+		        e.printStackTrace();
 			System.exit(0);
 			}
-
-		try {
+	        try {
 		todo.severity = Severity.valueOf(array[2]);
 		} catch(IllegalArgumentException e) {
 			e.printStackTrace();
 		}
-		
 		return todo;
 }}
-		//return todo;}}
+		
